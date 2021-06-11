@@ -1,0 +1,6 @@
+{
+  "db_name": "postgresql",
+  "creation_statements": "CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; GRANT SELECT ON public.quotes TO \"{{name}}\";",
+  "default_ttl": "1m",
+  "max_ttl": "0"
+}

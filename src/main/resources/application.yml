@@ -1,0 +1,29 @@
+
+spring:
+  application.name:  quote-service
+  cloud.vault:
+    host: 127.0.0.1
+    port: 8200
+    scheme: http
+    authentication: CUBBYHOLE
+    token: s.36NJcu7hAd5Q7JgnvhmdJbny
+    kv:
+      enabled: false
+    database:
+      enabled: true
+      role: quotes_readonly
+      backend: database
+      username-property: spring.datasource.username
+      password-property: spring.datasource.password
+
+  config.import: vault://
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: "jdbc:postgresql://127.0.0.1:5432/postgres"
+    # username injected by cloud config
+    # password injected by cloud config
+
